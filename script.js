@@ -35,11 +35,11 @@ setInterval(() => {
     gameOver = document.querySelector('.gameover');
     obstacle = document.querySelector('.obstacle');
 
-    dx = window.getComputedStyle(dino, null).getPropertyValue('left');
-    dy = window.getComputedStyle(dino, null).getPropertyValue('top');
+    dx = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
+    dy = parseInt(window.getComputedStyle(dino, null).getPropertyValue('top'));
 
-    ox = window.getComputedStyle(obstacle, null).getPropertyValue('left');
-    oy = window.getComputedStyle(obstacle, null).getPropertyValue('top');
+    ox = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('left'));
+    oy = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('top'));
 
     offsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
@@ -61,7 +61,7 @@ setInterval(() => {
             cross = true;
         }, 1000);
         setTimeout(() => {
-            aniDur = parsefloat(window.getComputedStyle(obstacle, null).getPropertyValue('.animate-Duration'));
+            aniDur = parseFloat(window.getComputedStyle(obstacle, null).getPropertyValue('.animate-Duration'));
             newDur = aniDur - 0.1;
             obstacle.style.animationDuration = 's';
             console.log("New animation duration is:", newDur);
