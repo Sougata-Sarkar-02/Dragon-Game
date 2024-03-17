@@ -71,5 +71,5 @@ setInterval(() => {
 }, 10);
 
 function updateScore(score) {
-    ServiceWorkerContainer.innerHTML = "Your Score: " + score;
+    scoreCont.innerHTML = "Your Score: " + score;
 }
