@@ -52,6 +52,10 @@ setInterval(() => {
             audiogo.pause();
             audio.pause();
         }, 1000);
+        if( score > 0 ){
+            score -= 1;
+            updateScore(score);
+        }
     }
     else if (offsetX < 112 && cross) {
         score += 1;
