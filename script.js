@@ -44,8 +44,7 @@ setInterval(() => {
     offsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
 
-    console.log(offsetX, offsetY);
-    if (offsetX = 0 && offsetY < 0) {
+    if (offsetX < 72 && offsetY < 53) {
         gameOver.innerHTML = "Game over. Reload to play again";
         obstacle.classList.remove('obstacleAni');
         audiogo.play();
