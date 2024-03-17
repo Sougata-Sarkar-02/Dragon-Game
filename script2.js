@@ -4,7 +4,7 @@ cross = true;
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3');
 setTimeout(() => {
-    // audio.play();
+    audio.play();
 }, 1000);
 
 document.onkeydown = function (e) {
@@ -21,7 +21,7 @@ document.onkeydown = function (e) {
         dino.style.left = dinoX + 112 + 'px';
         console.log(dino.style.left);
     }
-    if (e.key == 1) {
+    if (e.key == "ArrowUp") {
         dino = document.querySelector('.dino');
         dino.classList.add('animateDino');
         setTimeout(() => {
@@ -37,21 +37,17 @@ setInterval(() => {
 
     dx = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
     dy = parseInt(window.getComputedStyle(dino, null).getPropertyValue('top'));
-    // console.log(dx, dy);
 
     ox = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('left'));
     oy = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('top'));
-    // console.log(ox, oy);
 
     offsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
 
-    // console.log(offsetX, offsetY);
-
     if (offsetX < 73 && offsetY < 52) {
         gameover.innerHTML = "Game Over, Reload again to play!";
         obstacle.classList.remove('obstacleAni');
-        // audiogo.play();
+        audiogo.play();
         setTimeout(() => {
             audiogo.pause();
             audio.pause();

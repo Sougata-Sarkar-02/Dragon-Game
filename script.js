@@ -5,12 +5,8 @@ audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3');
 audiogo.play();
 setTimeout(() => {
-
+    audio.play();
 }, 1000)
-
-// document.addEventListener('keydown', function(event){
-//   console.log(event.key);
-// })
 
 document.onkeydown = function (e) {
     console.log("key code is: ", e.keyCode);
@@ -49,7 +45,7 @@ setInterval(() => {
     offsetY = Math.abs(dy - oy);
 
     console.log(offsetX, offsetY);
-    if (offsetX = 0 && offsetY < 0){
+    if (offsetX = 0 && offsetY < 0) {
         gameOver.innerHTML = "Game over. Reload to play again";
         obstacle.classList.remove('obstacleAni');
         audiogo.play();
@@ -63,17 +59,17 @@ setInterval(() => {
         updateScore(score);
         cross = false;
         setTimeout(() => {
-           cross=true; 
+            cross = true;
         }, 1000);
         setTimeout(() => {
-           aniDur = parsefloat(window.getComputedStyle(obstacle, null).getPropertyValue('.animate-Duration'));
-           newDur = aniDur - 0.1;
-           obstacle.style.animationDuration = 's';
-           console.log("New animation duration is:",newDur);
+            aniDur = parsefloat(window.getComputedStyle(obstacle, null).getPropertyValue('.animate-Duration'));
+            newDur = aniDur - 0.1;
+            obstacle.style.animationDuration = 's';
+            console.log("New animation duration is:", newDur);
         }, 500);
     }
-},10);
+}, 10);
 
-function updateScore(score){
-    ServiceWorkerContainer.innerHTML = "Your Score: "+score;
+function updateScore(score) {
+    ServiceWorkerContainer.innerHTML = "Your Score: " + score;
 }
